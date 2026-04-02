@@ -1,0 +1,626 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #090909;
+    --fg: #f0ece0;
+    --accent: #d4a853;
+    --pink: #c87fa0;
+    --dim: #3a3832;
+    --mono: 'Space Mono', monospace;
+    --display: 'Bebas Neue', sans-serif;
+  }
+
+  #lk-root {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--mono);
+    min-height: 100vh;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  #lk-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid var(--dim);
+    position: sticky;
+    top: 0;
+    background: rgba(9,9,9,0.95);
+    z-index: 100;
+    backdrop-filter: blur(4px);
+  }
+  #lk-nav .logo {
+    font-family: var(--display);
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+    color: var(--fg);
+  }
+  #lk-nav .logo span { color: var(--accent); }
+  #lk-nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-btn {
+    background: none;
+    border: none;
+    color: var(--fg);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.5;
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+    transition: opacity 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    opacity: 1;
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* SECTIONS */
+  .section { display: none; animation: fadeIn 0.4s ease; }
+  .section.visible { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* HERO */
+  #sec-home {
+    padding: 0;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  #hero-bg {
+    position: absolute;
+    inset: 60px 0 0 0;
+    background: linear-gradient(160deg, #1a1206 0%, #090909 50%, #0d0a14 100%);
+    overflow: hidden;
+    z-index: 0;
+  }
+  #hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(var(--dim) 1px, transparent 1px),
+      linear-gradient(90deg, var(--dim) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.18;
+  }
+  #hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 2rem 3rem;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  #hero-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+    opacity: 0.85;
+  }
+  #hero-name {
+    font-family: var(--display);
+    font-size: clamp(4rem, 14vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: 0.03em;
+    color: var(--fg);
+    margin-bottom: 1rem;
+  }
+  #hero-sub {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg);
+    opacity: 0.45;
+    margin-bottom: 2rem;
+  }
+  #hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .cta-btn {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.4rem;
+    cursor: pointer;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    transition: background 0.2s, color 0.2s;
+  }
+  .cta-btn:hover { background: var(--accent); color: var(--bg); }
+  .cta-btn.ghost { border-color: var(--dim); color: var(--fg); opacity: 0.6; }
+  .cta-btn.ghost:hover { border-color: var(--fg); opacity: 1; background: transparent; }
+
+  /* Waveform deco */
+  #wave-deco {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.12;
+  }
+
+  /* SCROLL HINT */
+  #scroll-hint {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.35;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  #scroll-hint div { width: 1px; height: 40px; background: var(--fg); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:0.2} 50%{opacity:1} }
+
+  /* ABOUT */
+  #sec-about { padding: 3rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+  @media(max-width: 680px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .about-text { font-size: 0.95rem; line-height: 1.9; color: var(--fg); opacity: 0.85; }
+  .about-text p + p { margin-top: 1.2rem; }
+  .about-text em { color: var(--accent); font-style: normal; }
+  .about-sidebar {
+    border-left: 1px solid var(--dim);
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .sidebar-block {}
+  .sidebar-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+    opacity: 0.8;
+  }
+  .sidebar-val {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    opacity: 0.7;
+  }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--dim);
+    padding: 3px 10px;
+    color: var(--fg);
+    opacity: 0.7;
+  }
+  .tag.hi { border-color: var(--accent); color: var(--accent); opacity: 1; }
+
+  /* RELEASES */
+  #sec-releases { padding: 3rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .releases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1px;
+    margin-top: 2rem;
+    border: 1px solid var(--dim);
+  }
+  .release-card {
+    background: #0e0e0e;
+    padding: 1.5rem;
+    border-right: 1px solid var(--dim);
+    border-bottom: 1px solid var(--dim);
+    transition: background 0.2s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .release-card:hover { background: #151410; }
+  .release-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .release-card:hover::before { transform: scaleX(1); }
+  .release-num {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    opacity: 0.7;
+    margin-bottom: 0.8rem;
+  }
+  .release-title {
+    font-family: var(--display);
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    color: var(--fg);
+  }
+  .release-date {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    opacity: 0.45;
+    margin-bottom: 0.5rem;
+  }
+  .release-credit {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    line-height: 1.6;
+  }
+
+  /* STAGES */
+  #sec-stages { padding: 3rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .stages-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 2rem;
+  }
+  .stage-pill {
+    border: 1px solid var(--dim);
+    padding: 0.5rem 1.1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    transition: border-color 0.2s, opacity 0.2s, color 0.2s;
+    cursor: default;
+  }
+  .stage-pill:hover { border-color: var(--accent); opacity: 1; color: var(--accent); }
+  .stage-pill.featured {
+    border-color: var(--pink);
+    color: var(--pink);
+    opacity: 0.9;
+  }
+
+  /* CONTACT */
+  #sec-contact { padding: 3rem 2rem; max-width: 700px; margin: 0 auto; }
+  .contact-block { margin-top: 2rem; }
+  .contact-row {
+    display: flex;
+    border-bottom: 1px solid var(--dim);
+    padding: 1rem 0;
+    gap: 1rem;
+    align-items: center;
+  }
+  .contact-icon {
+    width: 2rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.75;
+    flex-shrink: 0;
+  }
+  .contact-val {
+    font-size: 0.88rem;
+    opacity: 0.8;
+  }
+  .contact-val a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--dim); transition: border-color 0.2s; }
+  .contact-val a:hover { border-color: var(--accent); color: var(--accent); }
+  .social-links { display: flex; flex-direction: column; gap: 6px; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--dim); }
+  .social-link {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: 0.4rem 0;
+    opacity: 0.6;
+    cursor: default;
+    transition: opacity 0.2s;
+  }
+  .social-link:hover { opacity: 1; }
+  .social-link .platform { color: var(--accent); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; }
+
+  /* SECTION HEADER */
+  .sec-header { margin-bottom: 0; }
+  .sec-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.7;
+    margin-bottom: 0.4rem;
+  }
+  .sec-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    letter-spacing: 0.04em;
+    line-height: 0.9;
+    color: var(--fg);
+  }
+  .sec-line {
+    width: 3rem;
+    height: 1px;
+    background: var(--accent);
+    margin-top: 1rem;
+  }
+
+  /* TICKER */
+  #ticker {
+    border-top: 1px solid var(--dim);
+    border-bottom: 1px solid var(--dim);
+    padding: 0.5rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #0a0a0a;
+    margin: 2rem 0;
+  }
+  #ticker-inner {
+    display: inline-block;
+    animation: ticker 20s linear infinite;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    color: var(--fg);
+  }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* EQUALIZER BARS */
+  #eq-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 30px;
+    margin-left: auto;
+    padding-right: 1rem;
+  }
+  .eq-bar {
+    width: 3px;
+    background: var(--accent);
+    opacity: 0.6;
+    border-radius: 1px;
+    animation: eq var(--d) ease-in-out infinite alternate;
+  }
+  @keyframes eq { from { height: 4px; } to { height: var(--h); } }
+</style>
+
+<div id="lk-root">
+  <nav id="lk-nav">
+    <div class="logo">LOUKOUM<span>.</span></div>
+    <div id="lk-nav-links">
+      <button class="nav-btn active" onclick="show('home',this)">Accueil</button>
+      <button class="nav-btn" onclick="show('about',this)">Bio</button>
+      <button class="nav-btn" onclick="show('releases',this)">Releases</button>
+      <button class="nav-btn" onclick="show('stages',this)">Scènes</button>
+      <button class="nav-btn" onclick="show('contact',this)">Contact</button>
+    </div>
+    <div id="eq-bars">
+      <div class="eq-bar" style="--d:0.7s;--h:24px"></div>
+      <div class="eq-bar" style="--d:1.1s;--h:18px"></div>
+      <div class="eq-bar" style="--d:0.5s;--h:28px"></div>
+      <div class="eq-bar" style="--d:0.9s;--h:14px"></div>
+      <div class="eq-bar" style="--d:1.3s;--h:22px"></div>
+      <div class="eq-bar" style="--d:0.6s;--h:26px"></div>
+      <div class="eq-bar" style="--d:1.0s;--h:12px"></div>
+    </div>
+  </nav>
+
+  <div id="ticker">
+    <span id="ticker-inner">
+      DJ / PRODUCER — MARSEILLE — HOUSE — TECHNO — CHICAGO — DETROIT — UK SOUND — RAW — UNPOLISHED — DANCEFLOOR — STORYTELLING &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      DJ / PRODUCER — MARSEILLE — HOUSE — TECHNO — CHICAGO — DETROIT — UK SOUND — RAW — UNPOLISHED — DANCEFLOOR — STORYTELLING &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+  </div>
+
+  <!-- HOME -->
+  <div id="sec-home" class="section visible">
+    <div style="position:relative; min-height:calc(100vh - 110px);">
+      <div id="hero-bg">
+        <div id="hero-grid"></div>
+        <svg id="wave-deco" width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="0,150 20,120 40,160 60,90 80,170 100,60 120,180 140,80 160,190 180,50 200,200 220,70 240,180 260,100 280,160 300,80 320,170 340,60 360,180 380,90 400,150" stroke="#d4a853" stroke-width="1.5" fill="none" opacity="0.6"/>
+          <polyline points="0,170 20,140 40,180 60,110 80,190 100,80 120,200 140,100 160,210 180,70 200,220 220,90 240,200 260,120 280,180 300,100 320,190 340,80 360,200 380,110 400,170" stroke="#c87fa0" stroke-width="1" fill="none" opacity="0.35"/>
+        </svg>
+      </div>
+      <div id="hero-content">
+        <div id="hero-tag">DJ / Producer — Marseille, France — 2026</div>
+        <div id="hero-name">LOUKOUM</div>
+        <div id="hero-sub">House · Techno · Chicago · Detroit · UK Sound</div>
+        <div id="hero-cta">
+          <button class="cta-btn" onclick="show('about', document.querySelectorAll('.nav-btn')[1])">Découvrir</button>
+          <button class="cta-btn ghost" onclick="show('contact', document.querySelectorAll('.nav-btn')[4])">Booking</button>
+        </div>
+      </div>
+      <div id="scroll-hint"><span>Bio</span><div></div></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="sec-about" class="section">
+    <div class="sec-header">
+      <div class="sec-label">01 — Biographie</div>
+      <div class="sec-title">About</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Loukoum est une DJ et productrice française du sud de la France. Derrière ce nom se cache un hommage aux <em>Loukoums</em> de DJ Mehdi, une mixtape rendant tribut aux <em>Donuts</em> de J Dilla.</p>
+        <p>Après près de huit ans passés à raconter l'histoire du rap français au sein d'un média spécialisé, elle décide de passer derrière les platines pour construire sa propre narration.</p>
+        <p>Bien qu'elle ait grandi avec le hip-hop, son amour pour la house et la techno n'a jamais été loin — nourri par les scènes de Chicago et Detroit et l'énergie fraîche du son UK.</p>
+        <p>Aujourd'hui, elle mêle ces influences dans des sets où son goût pour une <em>house brute, non polie et rapide</em>, avec des kicks percutants, des mélodies sèches et des lignes vocales ensoleillées, fait écho à l'énergie du rap — toujours avec une idée en tête : faire danser en racontant une histoire.</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-label">Localisation</div>
+          <div class="sidebar-val">Marseille, France</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Activité</div>
+          <div class="sidebar-val">DJ · Productrice</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Influences</div>
+          <div class="tag-list">
+            <span class="tag hi">House</span>
+            <span class="tag hi">Techno</span>
+            <span class="tag">Hip-Hop</span>
+            <span class="tag">Chicago</span>
+            <span class="tag">Detroit</span>
+            <span class="tag">UK Sound</span>
+            <span class="tag">DJ Mehdi</span>
+            <span class="tag">J Dilla</span>
+          </div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Son</div>
+          <div class="sidebar-val" style="font-size:0.8rem;opacity:0.65;line-height:1.7;">Raw · Unpolished · Fast · Punchy kicks · Dry melodies · Sun-drenched vocal lines</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RELEASES -->
+  <div id="sec-releases" class="section">
+    <div style="padding:3rem 2rem 0; max-width:1100px; margin:0 auto;">
+      <div class="sec-header">
+        <div class="sec-label">02 — Discographie</div>
+        <div class="sec-title">Releases</div>
+        <div class="sec-line"></div>
+      </div>
+    </div>
+    <div style="max-width:1100px; margin:0 auto; padding:0 2rem 3rem;">
+      <div class="releases-grid">
+        <div class="release-card">
+          <div class="release-num">001 · 2025</div>
+          <div class="release-title">Truth Is</div>
+          <div class="release-date">08 / 07 / 2025</div>
+          <div class="release-credit">Prod. Loukoum<br>Mix & master : Moonee<br>Groovence Disc</div>
+        </div>
+        <div class="release-card">
+          <div class="release-num">002 · 2025</div>
+          <div class="release-title">Patriarchy Scam</div>
+          <div class="release-date">27 / 08 / 2025</div>
+          <div class="release-credit">Prod. Loukoum<br>Mix & master : Groovence Disc</div>
+        </div>
+        <div class="release-card">
+          <div class="release-num">003 · 2026</div>
+          <div class="release-title">French Rioting</div>
+          <div class="release-date">14 / 01 / 2026</div>
+          <div class="release-credit">Prod. & mix : Loukoum<br>Master : Simon Erhar</div>
+        </div>
+        <div class="release-card" style="border-color: var(--accent);">
+          <div class="release-num" style="opacity:1;">004 · 2026 — LATEST</div>
+          <div class="release-title" style="color:var(--accent);">Aura Bloom</div>
+          <div class="release-date">28 / 02 / 2026</div>
+          <div class="release-credit">Prod. & mix : Loukoum<br>Master : Simon Erhar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGES -->
+  <div id="sec-stages" class="section">
+    <div style="padding:3rem 2rem; max-width:1100px; margin:0 auto;">
+      <div class="sec-header">
+        <div class="sec-label">03 — Expérience</div>
+        <div class="sec-title">Scènes &<br>Dancefloors</div>
+        <div class="sec-line"></div>
+      </div>
+      <div class="stages-list">
+        <div class="stage-pill featured">Delta Festival</div>
+        <div class="stage-pill featured">Utopia 2.6</div>
+        <div class="stage-pill featured">Cabaret Aléatoire</div>
+        <div class="stage-pill">Because Beaubourg</div>
+        <div class="stage-pill">Frigo 16</div>
+        <div class="stage-pill">Panic Room</div>
+        <div class="stage-pill">Le Rex — Toulouse</div>
+        <div class="stage-pill">Madame Loyal</div>
+        <div class="stage-pill">Baby Club</div>
+        <div class="stage-pill">Transverse</div>
+        <div class="stage-pill">Vice Versa</div>
+        <div class="stage-pill">Glass Club</div>
+        <div class="stage-pill" style="opacity:0.35; font-style:italic;">& more...</div>
+      </div>
+      <div style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--dim); font-size:0.7rem; opacity:0.4; letter-spacing:0.1em;">
+        FESTIVALS · CLUBS · SALLES — SUD DE LA FRANCE ET AU-DELÀ
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="sec-contact" class="section">
+    <div class="sec-header">
+      <div class="sec-label">04 — Booking</div>
+      <div class="sec-title">Contact</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="contact-block">
+      <div class="contact-row">
+        <div class="contact-icon">Mail</div>
+        <div class="contact-val"><a href="mailto:loukoumvrf@gmail.com">loukoumvrf@gmail.com</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">Tel</div>
+        <div class="contact-val">+33 6 82 73 22 57</div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">Ville</div>
+        <div class="contact-val">Marseille / France</div>
+      </div>
+    </div>
+    <div class="social-links">
+      <div class="social-link">
+        <span class="platform">Instagram</span>
+        <span>@Loukoumusic</span>
+      </div>
+      <div class="social-link">
+        <span class="platform">TikTok</span>
+        <span>@Loukoumusic</span>
+      </div>
+      <div class="social-link">
+        <span class="platform">SoundCloud</span>
+        <span>soundcloud.com/Loukoumusic</span>
+      </div>
+    </div>
+    <div style="margin-top:3rem; font-size:0.65rem; letter-spacing:0.15em; opacity:0.3; text-transform:uppercase;">
+      Loukoum — Press Kit 2026
+    </div>
+  </div>
+
+</div>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const sec = document.getElementById('sec-' + id);
+  if (sec) sec.classList.add('visible');
+  if (btn) btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
