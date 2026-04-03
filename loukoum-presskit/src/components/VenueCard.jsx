@@ -39,7 +39,7 @@ export default function VenueCard({ venue, onClick }) {
             src={venue.logo}
             alt={venue.name}
             className="max-h-8 max-w-[120px] object-contain"
-            style={{ filter: 'brightness(0)', opacity: 0.5 }}
+            style={{ filter: 'brightness(0)', opacity: 0.65 }}
           />
         ) : venue.svg ? (
           venue.svg
