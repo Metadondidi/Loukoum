@@ -24,7 +24,8 @@ export default function Venues() {
           className="mt-8 grid gap-px"
           style={{
             gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 220px), 1fr))',
-            border: '1px solid var(--dim)',
+            border: '1px solid #2e2a2d',
+            background: '#1a1619',
           }}
         >
           {venues.map(venue => (
