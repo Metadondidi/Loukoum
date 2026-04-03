@@ -5,10 +5,10 @@
 
 :root {
   --bg: #090909;
-  --fg: #f0ece0;
-  --accent: #d4a853;
-  --pink: #c87fa0;
-  --dim: #3a3832;
+  --fg: #ffffff;
+  --accent: #f0507a;
+  --pink: #e8799a;
+  --dim: #262626;
   --mono: 'Space Mono', monospace;
   --display: 'Bebas Neue', sans-serif;
 }
