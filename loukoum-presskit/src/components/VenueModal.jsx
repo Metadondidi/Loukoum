@@ -17,13 +17,13 @@ export default function VenueModal({ venue, onClose }) {
   return (
     <div
       className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center px-4"
-      style={{ background: 'rgba(9,9,9,0.88)', backdropFilter: 'blur(6px)' }}
+      style={{ background: 'rgba(20,10,14,0.6)', backdropFilter: 'blur(8px)' }}
       onClick={onClose}
     >
       <div
         className="modal-content w-full max-w-md p-8 relative"
         style={{
-          background: '#111',
+          background: '#ffffff',
           border: venue.featured ? '1px solid var(--pink)' : '1px solid var(--dim)',
         }}
         onClick={e => e.stopPropagation()}
@@ -44,7 +44,7 @@ export default function VenueModal({ venue, onClose }) {
               src={venue.logo}
               alt={venue.name}
               className="max-h-10 object-contain"
-              style={{ filter: 'brightness(0) invert(1)', opacity: 0.5 }}
+              style={{ filter: 'brightness(0)', opacity: 0.45 }}
             />
           </div>
         )}

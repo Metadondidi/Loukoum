@@ -4,11 +4,11 @@
 @tailwind utilities;
 
 :root {
-  --bg: #090909;
-  --fg: #ffffff;
-  --accent: #f0507a;
-  --pink: #e8799a;
-  --dim: #262626;
+  --bg: #f3efe9;
+  --fg: #0c0c0c;
+  --accent: #e8204e;
+  --pink: #f07090;
+  --dim: #d4cfc8;
   --mono: 'Space Mono', monospace;
   --display: 'Bebas Neue', sans-serif;
 }

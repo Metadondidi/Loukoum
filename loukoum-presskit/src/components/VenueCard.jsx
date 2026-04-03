@@ -16,17 +16,17 @@ export default function VenueCard({ venue, onClick }) {
       onClick={onClick}
       className="group text-left transition-all duration-200 p-4 cursor-pointer relative overflow-hidden"
       style={{
-        background: '#0e0e0e',
+        background: '#ffffff',
         border: venue.featured ? '1px solid var(--pink)' : '1px solid var(--dim)',
         color: venue.featured ? 'var(--pink)' : 'var(--fg)',
       }}
       onMouseEnter={e => {
         e.currentTarget.style.borderColor = venue.featured ? 'var(--pink)' : 'var(--accent)'
-        e.currentTarget.style.background = '#151410'
+        e.currentTarget.style.background = '#faf5f2'
       }}
       onMouseLeave={e => {
         e.currentTarget.style.borderColor = venue.featured ? 'var(--pink)' : 'var(--dim)'
-        e.currentTarget.style.background = '#0e0e0e'
+        e.currentTarget.style.background = '#ffffff'
       }}
     >
       {/* Logo area */}
@@ -39,7 +39,7 @@ export default function VenueCard({ venue, onClick }) {
             src={venue.logo}
             alt={venue.name}
             className="max-h-8 max-w-[120px] object-contain"
-            style={{ filter: 'brightness(0) invert(1)', opacity: 0.6 }}
+            style={{ filter: 'brightness(0)', opacity: 0.5 }}
           />
         ) : venue.svg ? (
           venue.svg
