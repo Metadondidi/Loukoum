@@ -1,0 +1,58 @@
+[
+  {
+    "id": "001",
+    "num": "001",
+    "year": "2025",
+    "title": "Truth Is",
+    "date": "08 / 07 / 2025",
+    "credit": "Prod. Loukoum\nMix & master : Moonee\nGroovence Disc",
+    "latest": false,
+    "links": {
+      "bandcamp": null,
+      "soundcloud": "https://soundcloud.com/loukoumusic",
+      "spotify": null
+    }
+  },
+  {
+    "id": "002",
+    "num": "002",
+    "year": "2025",
+    "title": "Patriarchy Scam",
+    "date": "27 / 08 / 2025",
+    "credit": "Prod. Loukoum\nMix & master : Groovence Disc",
+    "latest": false,
+    "links": {
+      "bandcamp": null,
+      "soundcloud": "https://soundcloud.com/loukoumusic",
+      "spotify": null
+    }
+  },
+  {
+    "id": "003",
+    "num": "003",
+    "year": "2026",
+    "title": "French Rioting",
+    "date": "14 / 01 / 2026",
+    "credit": "Prod. & mix : Loukoum\nMaster : Simon Erhar",
+    "latest": false,
+    "links": {
+      "bandcamp": null,
+      "soundcloud": "https://soundcloud.com/loukoumusic",
+      "spotify": null
+    }
+  },
+  {
+    "id": "004",
+    "num": "004",
+    "year": "2026",
+    "title": "Aura Bloom",
+    "date": "28 / 02 / 2026",
+    "credit": "Prod. & mix : Loukoum\nMaster : Simon Erhar",
+    "latest": true,
+    "links": {
+      "bandcamp": null,
+      "soundcloud": "https://soundcloud.com/loukoumusic",
+      "spotify": null
+    }
+  }
+]
