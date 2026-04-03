@@ -11,7 +11,7 @@ export default function Hero({ onNav }) {
           backgroundImage:
             'linear-gradient(var(--dim) 1px, transparent 1px), linear-gradient(90deg, var(--dim) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
-          opacity: 0.5,
+          opacity: 0.18,
         }}
       />
 
@@ -50,9 +50,9 @@ export default function Hero({ onNav }) {
             <button
               onClick={() => onNav('about')}
               className="font-mono text-[0.68rem] tracking-[0.14em] uppercase px-5 py-3 cursor-pointer transition-all duration-200"
-              style={{ border: '1px solid var(--accent)', color: '#fff', background: 'var(--accent)' }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--accent)' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = '#fff' }}
+              style={{ border: '1px solid var(--accent)', color: 'var(--accent)', background: 'transparent' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = 'var(--bg)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--accent)' }}
             >
               Découvrir
             </button>
@@ -90,11 +90,16 @@ export default function Hero({ onNav }) {
             src="/photos/loukoum-1.jpg"
             alt="Loukoum"
             className="w-full h-full object-cover object-center"
-            style={{ filter: 'grayscale(20%)' }}
+            style={{ filter: 'grayscale(30%) brightness(0.75)' }}
+          />
+          {/* Fondu gauche vers le fond noir (desktop) */}
+          <div
+            className="absolute inset-y-0 left-0 w-16 hidden sm:block"
+            style={{ background: 'linear-gradient(to right, var(--bg), transparent)' }}
           />
           {/* Dégradé de fondu bas sur mobile */}
           <div
-            className="absolute bottom-0 left-0 right-0 h-20 sm:hidden"
+            className="absolute bottom-0 left-0 right-0 h-24 sm:hidden"
             style={{ background: 'linear-gradient(transparent, var(--bg))' }}
           />
         </div>
