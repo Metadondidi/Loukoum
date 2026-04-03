@@ -3,7 +3,7 @@
     "id": "delta",
     "name": "Delta Festival",
     "featured": true,
-    "logo": null,
+    "logo": "/logos/delta.png",
     "location": "Marseille, France",
     "type": "Festival",
     "description": "Festival électronique majeur de Marseille installé sur les plages du Prado. Loukoum y a performé devant plusieurs milliers de personnes dans une atmosphère outdoor incomparable."
@@ -12,7 +12,7 @@
     "id": "utopia",
     "name": "Utopia 2.6",
     "featured": true,
-    "logo": null,
+    "logo": "/logos/utopia.png",
     "location": "Marseille, France",
     "type": "Club / Collectif",
     "description": "Collectif underground marseillais au cœur de la scène électronique locale. Un des espaces les plus bruts et authentiques où Loukoum a forgé son identité sonore."
@@ -21,7 +21,7 @@
     "id": "cabaret",
     "name": "Cabaret Aléatoire",
     "featured": true,
-    "logo": null,
+    "logo": "/logos/cabaret-aleatoire.png",
     "location": "Marseille, France",
     "type": "Salle de concert",
     "description": "Salle emblématique de Marseille, le Cabaret Aléatoire est un lieu de référence pour la musique électronique et les arts. Une scène qui compte dans le parcours de Loukoum."
@@ -30,7 +30,7 @@
     "id": "beaubourg",
     "name": "Because Beaubourg",
     "featured": false,
-    "logo": null,
+    "logo": "/logos/because-beaubourg.png",
     "location": "Paris, France",
     "type": "Festival / Événement",
     "description": "Événement parisien ancré dans la culture électronique et hip-hop. Une parenthèse dans la capitale pour Loukoum, loin de ses bases marseillaises."
@@ -39,7 +39,7 @@
     "id": "frigo",
     "name": "Frigo 16",
     "featured": false,
-    "logo": null,
+    "logo": "/logos/frigo-16.png",
     "location": "Marseille, France",
     "type": "Club",
     "description": "Espace atypique de Marseille, reconverti en lieu de fête underground. Frigo 16 incarne l'esprit DIY qui correspond à la démarche de Loukoum."
@@ -48,7 +48,7 @@
     "id": "panicroom",
     "name": "Panic Room",
     "featured": false,
-    "logo": null,
+    "logo": "/logos/panic-room.png",
     "location": "France",
     "type": "Club",
     "description": "Club à l'esthétique sombre et aux sonorités raw, un terrain de jeu naturel pour les sets de Loukoum où la house brute et la techno percutante s'expriment pleinement."
@@ -57,7 +57,7 @@
     "id": "rex",
     "name": "Le Rex",
     "featured": false,
-    "logo": null,
+    "logo": "/logos/le-rex.png",
     "location": "Toulouse, France",
     "type": "Club",
     "description": "Institution toulousaine de la musique électronique. Jouer au Rex, c'est s'inscrire dans une lignée de DJs qui ont façonné la scène française."
@@ -66,7 +66,7 @@
     "id": "madame",
     "name": "Madame Loyal",
     "featured": false,
-    "logo": null,
+    "logo": "/logos/madame-loyal.png",
     "location": "France",
     "type": "Club / Bar",
     "description": "Espace hybride à l'ambiance intime, idéal pour les sets profonds et narratifs que Loukoum aime construire tout au long de la nuit."
@@ -75,7 +75,7 @@
     "id": "babyclub",
     "name": "Baby Club",
     "featured": false,
-    "logo": null,
+    "logo": "/logos/baby-club.png",
     "location": "France",
     "type": "Club",
     "description": "Lieu intimiste où la connexion avec le dancefloor est directe. Baby Club représente l'essence même de ce que Loukoum recherche : faire danser en racontant une histoire."
@@ -84,7 +84,7 @@
     "id": "transverse",
     "name": "Transverse",
     "featured": false,
-    "logo": null,
+    "logo": "/logos/transverse.png",
     "location": "France",
     "type": "Événement / Collectif",
     "description": "Collectif et soirée orientée sons électroniques transversaux, où les genres se mélangent. Un contexte parfait pour l'éclectisme maîtrisé de Loukoum."
@@ -93,7 +93,7 @@
     "id": "viceversa",
     "name": "Vice Versa",
     "featured": false,
-    "logo": null,
+    "logo": "/logos/vice-versa.png",
     "location": "France",
     "type": "Club",
     "description": "Dancefloor où les basses parlent plus fort que les mots. Vice Versa est un de ces clubs où Loukoum laisse la musique dicter la narration."
@@ -102,7 +102,7 @@
     "id": "glass",
     "name": "Glass Club",
     "featured": false,
-    "logo": null,
+    "logo": "/logos/glass-club.png",
     "location": "France",
     "type": "Club",
     "description": "Espace au design affirmé, Glass Club accueille une clientèle exigeante en quête de qualité sonore. Un lieu où chaque track compte."

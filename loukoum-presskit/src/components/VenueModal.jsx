@@ -44,7 +44,7 @@ export default function VenueModal({ venue, onClose }) {
               src={venue.logo}
               alt={venue.name}
               className="max-h-10 object-contain"
-              style={{ filter: 'brightness(0)', opacity: 0.45 }}
+              style={{ filter: 'brightness(0)', opacity: 0.6 }}
             />
           </div>
         )}
