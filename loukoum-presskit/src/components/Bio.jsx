@@ -28,7 +28,7 @@ export default function Bio() {
               src="/photos/loukoum-2.jpg"
               alt="Loukoum devant une fresque"
               className="w-full object-cover"
-              style={{ maxHeight: '280px', filter: 'grayscale(15%)' }}
+              style={{ maxHeight: '280px', filter: 'grayscale(20%) brightness(0.85)' }}
             />
           </div>
 
@@ -76,7 +76,7 @@ export default function Bio() {
               src="/photos/mascotte.png"
               alt="Mascotte Loukoum"
               className="w-40 sm:w-48 object-contain"
-              style={{ mixBlendMode: 'multiply' }}
+              style={{ opacity: 0.85 }}
             />
           </div>
 

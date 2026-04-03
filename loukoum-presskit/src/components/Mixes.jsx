@@ -42,7 +42,7 @@ export default function Mixes() {
                 style={{
                   border: '1px solid var(--dim)',
                   display: 'block',
-                  background: '#ffffff',
+                  background: '#0e0e0e',
                 }}
               />
             </div>

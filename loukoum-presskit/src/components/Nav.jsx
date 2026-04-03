@@ -22,7 +22,7 @@ export default function Nav({ active, onNav }) {
     <nav
       className="sticky top-0 z-50"
       style={{
-        background: 'rgba(243,239,233,0.97)',
+        background: 'rgba(9,9,9,0.95)',
         borderBottom: '1px solid var(--dim)',
         backdropFilter: 'blur(8px)',
       }}
