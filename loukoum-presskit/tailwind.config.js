@@ -9,9 +9,9 @@ export default {
       colors: {
         bg: '#090909',
         fg: '#f0ece0',
-        accent: '#f0507a',
-        pink: '#e8799a',
-        dim: '#262626',
+        accent: '#e8204e',
+        pink: '#f07090',
+        dim: '#d4cfc8',
       },
       fontFamily: {
         display: ['"Bebas Neue"', 'sans-serif'],

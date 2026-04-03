@@ -8,7 +8,7 @@ export default function Ticker() {
       style={{
         borderTop: '1px solid var(--dim)',
         borderBottom: '1px solid var(--dim)',
-        background: '#0a0a0a',
+        background: 'var(--bg)',
       }}
     >
       <span

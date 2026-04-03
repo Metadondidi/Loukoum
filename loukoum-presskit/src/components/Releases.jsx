@@ -54,7 +54,7 @@ export default function Releases() {
               key={r.id}
               className="release-card relative p-6 transition-colors duration-200 overflow-hidden"
               style={{
-                background: '#0e0e0e',
+                background: '#ffffff',
                 borderRight: '1px solid var(--dim)',
                 borderBottom: '1px solid var(--dim)',
                 ...(r.latest
@@ -62,10 +62,10 @@ export default function Releases() {
                   : {}),
               }}
               onMouseEnter={e => {
-                if (!r.latest) e.currentTarget.style.background = '#151410'
+                if (!r.latest) e.currentTarget.style.background = '#faf5f2'
               }}
               onMouseLeave={e => {
-                if (!r.latest) e.currentTarget.style.background = '#0e0e0e'
+                if (!r.latest) e.currentTarget.style.background = '#ffffff'
               }}
             >
               <div
