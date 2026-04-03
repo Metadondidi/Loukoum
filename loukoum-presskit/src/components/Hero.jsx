@@ -8,7 +8,7 @@ export default function Hero({ onNav }) {
       <div
         className="absolute inset-0 overflow-hidden"
         style={{
-          background: 'linear-gradient(160deg, #1a1206 0%, #090909 50%, #0d0a14 100%)',
+          background: 'linear-gradient(160deg, #12060c 0%, #090909 55%, #0a090f 100%)',
         }}
       >
         {/* Grid overlay */}
@@ -45,14 +45,14 @@ export default function Hero({ onNav }) {
         >
           <polyline
             points="0,150 20,120 40,160 60,90 80,170 100,60 120,180 140,80 160,190 180,50 200,200 220,70 240,180 260,100 280,160 300,80 320,170 340,60 360,180 380,90 400,150"
-            stroke="#d4a853"
+            stroke="#f0507a"
             strokeWidth="1.5"
             fill="none"
             opacity="0.6"
           />
           <polyline
             points="0,170 20,140 40,180 60,110 80,190 100,80 120,200 140,100 160,210 180,70 200,220 220,90 240,200 260,120 280,180 300,100 320,190 340,80 360,200 380,110 400,170"
-            stroke="#c87fa0"
+            stroke="#e8799a"
             strokeWidth="1"
             fill="none"
             opacity="0.35"

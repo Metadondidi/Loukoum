@@ -4,12 +4,12 @@ const MIXES = [
   {
     id: 'mix-01',
     title: 'Mix principal',
-    url: 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/loukoumusic&color=%23d4a853&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true',
+    url: 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/loukoumusic&color=%23f0507a&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true',
   },
   {
     id: 'mix-02',
     title: 'Derniers tracks',
-    url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/loukoumusic&color=%23d4a853&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=false',
+    url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/loukoumusic&color=%23f0507a&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=false',
   },
 ]
 
