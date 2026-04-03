@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #090909;
+  --fg: #f0ece0;
+  --accent: #d4a853;
+  --pink: #c87fa0;
+  --dim: #3a3832;
+  --mono: 'Space Mono', monospace;
+  --display: 'Bebas Neue', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--mono);
+  overflow-x: hidden;
+}
+
+/* ── SECTION FADE-IN ─────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.section-visible {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* ── TICKER ──────────────────────────────────────────── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-animate {
+  display: inline-block;
+  animation: ticker 28s linear infinite;
+}
+
+/* ── EQUALIZER BARS ──────────────────────────────────── */
+@keyframes eq {
+  from { height: 4px; }
+  to   { height: var(--h); }
+}
+.eq-bar {
+  width: 3px;
+  background: var(--accent);
+  opacity: 0.6;
+  border-radius: 1px;
+  animation: eq var(--d) ease-in-out infinite alternate;
+}
+
+/* ── HERO ────────────────────────────────────────────── */
+@keyframes pulse {
+  0%,100% { opacity: 0.2; }
+  50%      { opacity: 1; }
+}
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--fg);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── RELEASE CARD ACCENT LINE ─────────────────────────── */
+.release-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.release-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── VENUE MODAL ──────────────────────────────────────── */
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.modal-backdrop {
+  animation: backdropIn 0.25s ease forwards;
+}
+.modal-content {
+  animation: modalIn 0.25s ease forwards;
+}
